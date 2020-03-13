@@ -1,0 +1,69 @@
+.card {
+    width: 100%;
+    height: 500px;
+    margin-top: 15px;
+    background-color: white;
+}
+
+.card .user {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.card .user .avatar {
+    height: 70px;
+}
+
+.card .user .avatar img {
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.card .user .user-data {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.card .user .user-data .name{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.card .user .user-data .time{
+    color: rgb(194, 190, 190);
+}
+
+.card .description {
+    height: 40px;
+}
+
+.card .description p{
+    margin-left: 10px;
+}
+
+.card .photo {
+    height: 300px;
+}
+
+.card .photo img{
+    width: 100%;
+    height: 100%;
+}
+
+.card .actions {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .actions .likes {
+    margin-left: 15px;
+}
+
+.card .actions .comments {
+    margin-right: 15px;
+}
