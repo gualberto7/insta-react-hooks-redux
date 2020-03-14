@@ -1,49 +1,70 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles.css'
-
-const defaultUser = 'https://www.sketchengine.eu/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+import { URL } from '../GLOBAL'
+import { getPosts, setLike } from '../../containers/posts.container'
 
 const Posts = () => {
 
-    //const [ user, setUser ] = useState({})
+    const [posts, setPosts] = useState([])
+    const [isLoading, setLoading] = useState(true)
 
-    /*useEffect(() => {
-        fetch('http://blog.test/prueba')
-            .then(res => res.json())
-            .then(data => setUser(data))
-            .catch(e => console.log(e))
-    })*/
+    useEffect(() => {
+        fetchPost()
+    }, [])
+
+    const fetchPost = () => {
+        getPosts()
+            .then(res => {
+                setPosts(res.data.data)
+                setLoading(false)
+            })
+            .catch(e=> console.log(e))
+    }
+
+    const liked = (id) => {
+        setLike(id)
+        .then(() => {
+            fetchPost()
+        })
+        .catch(e=> console.log(e))
+    }
 
     return (
-        [1].map(post => (
-            <div key={post} className='card'>
-                <div className='user'>
-                    <div className='avatar'>
-                        <img src={ defaultUser } />
+        <>
+            { isLoading ?
+                <p>Cargando...</p>
+             :
+              posts.map(post => (                   
+                <div key={post.id} className='card'>
+                    <div className='user'>
+                        <div className='avatar'>
+                            <img src={`${URL}/img/${post.userAvatar}`} />
+                        </div>
+                        <div className='user-data'>
+                            <span className='name'>{ post.user }</span><br />
+                            <span className='time'>{ post.created_at }</span>
+                        </div>
                     </div>
-                    <div className='user-data'>
-                        <span className='name'>Vania Eunice Calvimontes</span><br />
-                        <span className='time'>hace 4 minutos</span>
+                    <div className='description'>
+                        <p>{ post.post }</p>
+                    </div>
+                    <div className='photo'>
+                        <img src={`${URL}/img/${post.photo}`} />
+                    </div>
+                    <div className='actions'>
+                        <div className='likes'>
+                        <i className='material-icons' onClick={liked.bind(this, post.id)}>{ post.like ? 'favorite' : 'favorite_border' }</i>
+                            <span>{ post.likes }</span>
+                        </div>
+                        <div className='comments'>
+                            <i className='material-icons'>chat</i>
+                            <span>{ post.comments }</span>
+                        </div>
                     </div>
                 </div>
-                <div className='description'>
-                    <p>Santa virgen de la Papaya</p>
-                </div>
-                <div className='photo'>
-                    <img src="#" />
-                </div>
-                <div className='actions'>
-                    <div className='likes'>
-                        <i className='material-icons'>favorite</i>
-                        <span>10</span>
-                    </div>
-                    <div className='comments'>
-                        <i className='material-icons'>chat</i>
-                        <span>10</span>
-                    </div>
-                </div>
-            </div>
-        ))
+              ))
+            }
+        </>
     )
 }
  

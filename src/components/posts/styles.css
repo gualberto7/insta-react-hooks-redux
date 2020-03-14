@@ -17,9 +17,11 @@
 
 .card .user .avatar img {
     height: 50px;
+    width: 50px;
     border-radius: 50%;
     margin-left: 15px;
     margin-top: 15px;
+    object-fit: cover;
 }
 
 .card .user .user-data {
@@ -51,6 +53,7 @@
 .card .photo img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .card .actions {
@@ -66,4 +69,28 @@
 
 .card .actions .comments {
     margin-right: 15px;
+}
+
+.form-post{
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    background-color: white;
+}
+.form-post textarea{
+    width: 98%;
+    height: 40px;
+}
+.form-post img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.actions-b{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
 }
