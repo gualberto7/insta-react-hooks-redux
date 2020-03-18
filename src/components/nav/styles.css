@@ -10,3 +10,7 @@
 .nav .a {
     color: black;
 }
+
+.navActive {
+    border-bottom: 1px solid #af6767;
+}

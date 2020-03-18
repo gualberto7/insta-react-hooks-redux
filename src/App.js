@@ -11,8 +11,10 @@ import Post from './components/posts/post'
 import Profile from './components/user/profile'
 import Nav from './components/nav/nav'
 import PostCreate from './components/posts/create'
+import SearchFriends from './components/serach/search'
 
-function App() {
+function App(props) {
+  console.log('asd',props)
   return (
     <Provider store={store}>
       <Router>      
@@ -24,6 +26,7 @@ function App() {
         <Route path='/register' component={ Register } />
         <Route path='/login' component={ Login } />
         <Route path='/profile' component={ Profile } />
+        <Route path='/search' component={ SearchFriends } />
       </Router>
     </Provider>
   )

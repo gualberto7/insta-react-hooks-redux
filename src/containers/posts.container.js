@@ -18,3 +18,12 @@ export const setLike = (id) => {
 export const setComment = (data) => {
     return axios.post(`${URL}/comments`, data, {headers: {'Authorization': `Bearer ${token}`}})
 }
+
+export const listFriends = () => {
+    return axios.get(`${URL}/users`, {headers: {'Authorization': `Bearer ${token}`}})
+}
+
+export const searchFriends = (query) => {
+    if(query) return axios.get(`${URL}/search/${query}`)
+    else return axios.get(`${URL}/search`)
+}

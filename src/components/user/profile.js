@@ -54,6 +54,7 @@ const Profile = (props) => {
         axios.get('http://blog.test/auth/logout', {headers: {'Authorization': `Bearer ${token}`}})
             .then(() => {
                 props.removeUser()
+                props.history.push('/login')
             })
     }
 

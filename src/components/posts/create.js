@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { URL } from '../GLOBAL'
 
-const PostCreate = () => {
+const PostCreate = (props) => {
 
     const [ text, setText ] = useState('')
     const [ photo, setPhoto ] = useState('')
@@ -11,8 +11,8 @@ const PostCreate = () => {
         let data = { description: text, photo }
         let token = sessionStorage.getItem('token')
         axios.post(`${URL}/posts`, data, {headers: {'Authorization': `Bearer ${token}`}})
-        .then(res => {
-            console.log(res.data)
+        .then(() => {
+            props.history.push('/')
         })
         .catch(e => console.log(e))
     }
