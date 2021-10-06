@@ -1,5 +1,5 @@
-This project tries to be an Instagram clone.
-It was implanted with react redux css. Consume an api_rest developed with Laravel MySql -> https://github.com/albertgc1/api_nsocial
+This project looks like an Instagram clone.
+It was implemented with react redux css. Calls an api_rest developed with Laravel MySql -> https://github.com/albertgc1/api_nsocial
 
 Screens:
 
