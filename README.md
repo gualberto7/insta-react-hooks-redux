@@ -1,5 +1,4 @@
-This project looks like an Instagram clone.
-It was implemented with react redux css. Calls an api_rest developed with Laravel MySql -> https://github.com/albertgc1/api_nsocial
+Social Network is a project developed with React and Redux. It is a simple project that allows users to create posts, like posts, comment on posts and delete posts.
 
 Screens:
 
